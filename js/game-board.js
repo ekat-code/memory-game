@@ -1,11 +1,12 @@
 import { createElement } from './create-element.js';
 import { cards } from './cards.js';
+import { handleClickCard } from './game.js';
 
 // функция отрисовки игрового поля
 export const renderGameBoard = () => {
   const main = createElement('main', 'main');
-  const moves = createElement('span', 'moves', 'Moves: ');
-  const foundPairs = createElement('span', 'found-pairs', 'Found pairs: ');
+  const moves = createElement('span', 'moves', 'Moves: 0');
+  const foundPairs = createElement('span', 'found-pairs', 'Found pairs: 0');
   const container = createElement('div', 'container__game-board');
 
   const deck = getDeck();
@@ -34,10 +35,12 @@ const getDeck = () => {
 // функция отрисовки карточек
 const renderCards = (gameBoard, deck) => {
   deck.forEach((item) => {
-    const card = createElement('div', 'card');
+    const card = createElement('div', 'card', null, { 'data-value': item.id });
     const image = createElement('img', 'card__image', null, { src: item.image, alt: `Карточка ${item.id}` });
 
     gameBoard.append(card);
     card.append(image);
+
+    handleClickCard(card);
   });
 };
