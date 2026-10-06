@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.6rem;
+  background: #72a9f7;
+  border-radius: 5%;
+}
+
+/* header */
+.header {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #e1e1e1;
+  border-bottom: 1px solid #0b1728;
+}
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.container__game-board {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  max-width: 42rem;
+}
+
+/* card */
+.card {
+  background-image: url('../assets/card_back.png');
+  background-color: #9999994a;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid #808080;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.card__image {
+  visibility: hidden;
+}
+
+.card--open {
+  border: 1px solid #808080;
+  border-radius: 5%;
+  background: #f5f5f5;
+}
+
+.card--open > .card__image {
+  visibility: visible;
+}
